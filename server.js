@@ -1,21 +1,15 @@
-const express = require('express');
-const path = require('path');
+const express = require("express");
+const path = require("path");
 
 const app = express();
-const PORT = 3000;
 
-app.use(express.static(path.join(__dirname, 'public')));
+// Serve static files from the 'public' directory
+app.use(express.static("public"));
 
-// Route to serve SVG data
-app.get('/svg-data', (req, res) => {
-    const svgContent = `
-        <circle cx="250" cy="200" r="50" fill="green">
-            <animate attributeName="cx" values="250;150;250" dur="2s" repeatCount="indefinite" />
-        </circle>
-    `;
-    res.send(svgContent);
+// Serve index.html for the root route
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running at http://localhost:${PORT}`);
-});
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
