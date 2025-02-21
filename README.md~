@@ -13,7 +13,7 @@ served by a Node.js + Express backend.
 - **An animated SVG circle** fetched dynamically from the backend.
 
 ## Technologies Used
-- **Frontend:** HTML, CSS, JavaScript (SVG)
+- **Frontend:** HTML, JavaScript (SVG)
 - **Backend:** Node.js + Express
 - **Hosting:** Glitch
 
